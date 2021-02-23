@@ -13,7 +13,12 @@ class HashTable:
   # This method creates an array (list) of a given size and populates each of its elements with a LinkedList object.
 
   def create_arr(self, size):
-    pass
+    myList = []
+
+    for i in range(self.size):
+      myList.append(LinkedList())
+
+    return myList
 
 
 
