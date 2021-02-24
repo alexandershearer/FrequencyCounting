@@ -39,14 +39,23 @@ class HashTable:
 
   # 3️⃣ TODO: Complete the insert method.
 
-  # Should insert a key value pair into the hash table, where the key is the word and the value is a counter for the number of times the word appeared. When inserting a new word in the hash table, be sure to check if there is a Node with the same key in the table already.
+  # Should insert a key value pair into the hash table, where the 
+  # key is the word and the value is a counter for the number of times the word appeared. 
+  # When inserting a new word in the hash table, be sure to check if there is a Node with the same key in the table already.
 
   def insert(self, key, value):
     new_data = (key, value)
     arr_index = self.hash_func(new_data[0])
     linked_list = self.arr[arr_index]
+    linked_list_index = linked_list.find(new_data[0])
 
+    print(f'Looking for: {new_data[0]} in [{arr_index}]')
 
+    if linked_list_index == -1:
+      linked_list.append(new_data)
+    else:
+      print(f'Duplicate: {new_data[0]}')
+      linked_list.update_node(key)
 
 
   # 4️⃣ TODO: Complete the print_key_values method.
@@ -61,7 +70,8 @@ class HashTable:
   # erase: 2
 
   def print_key_values(self):
-    pass
+    for linked_list in self.arr:
+      linked_list.print_nodes()
 
 
 

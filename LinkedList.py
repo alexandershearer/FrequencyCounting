@@ -10,6 +10,7 @@ class LinkedList:
     new_node = Node(new_data)
     new_node.next = self.head
     self.head = new_node
+    print(f'Added: {new_data[0]}')
 
 
   def find(self,item):
@@ -31,6 +32,24 @@ class LinkedList:
       return counter
     else:
       return -1
+
+  def update_node(self, key):
+    current = self.head
+    found = False
+
+    print(f'Updating: {key}')
+
+    while current.data[0] != None and not found:
+      current_key = current_data[0]
+      current_val = current_data[1]
+      print(f'Searching: {current_key}')
+      if current_key == key:
+        found == True
+        print('Found: {key}')
+        current.data = (current_key, current_val + 1)
+        print(f'Updated: WAS: {current_key}: {current_val} NOW: {current_key}: {current_val + 1}')
+      else: 
+        current = current.next
 
 
 
