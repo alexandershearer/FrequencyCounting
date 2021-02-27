@@ -22,7 +22,7 @@ class LinkedList:
 
     while current != None and not found:
 
-      if current.data == item:
+      if current.data[0] == item:
         found = True
       else:
         current = current.next
@@ -40,11 +40,11 @@ class LinkedList:
     print(f'Updating: {key}')
 
     while current.data[0] != None and not found:
-      current_key = current_data[0]
-      current_val = current_data[1]
+      current_key = current.data[0]
+      current_val = current.data[1]
       print(f'Searching: {current_key}')
       if current_key == key:
-        found == True
+        found = True
         print('Found: {key}')
         current.data = (current_key, current_val + 1)
         print(f'Updated: WAS: {current_key}: {current_val} NOW: {current_key}: {current_val + 1}')
@@ -69,8 +69,8 @@ class LinkedList:
     current = self.head
     
     if current == None:
-      print('The linked list is empty.')
+      pass
     else:
       for i in range(self.length()):
-        print(f'Node {i}: {current.data}')
+        print(f'{current.data[0]}: {current.data[1]}')
         current = current.next
